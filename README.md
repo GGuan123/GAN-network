@@ -33,9 +33,9 @@ GAN-network/
 | 颜色通道 | RGB |
 | 训练 / 验证 / 测试 | 795 / 227 / 114（70% / 20% / 10%） |
 
-训练集：训练时discriminator取一批real图和generator生成的fake图，两者一起算discrimination loss, 反向传播。
-验证集：不参与梯度计算，每个epoch末进行一次前向传播做过拟合监控。
-测试集：训练结束后测试输出。
+- **训练集**：训练时discriminator取一批real图和generator生成的fake图，两者一起算discrimination loss, 反向传播。
+- **验证集**：不参与梯度计算，每个epoch末进行一次前向传播做过拟合监控。
+- **测试集**：训练结束后测试输出。
 
 数据预先处理：
 1. 将图像从numpy.ndarry(0-255像素) -> 缩放到Pytorch Tensor张量(0-1的浮点数)

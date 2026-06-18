@@ -2,8 +2,6 @@
 
 基于生成对抗网络（GAN），从随机噪声合成逼真 CAPTCHA 图像。提供两个版本：纯 PyTorch 实现和 PyTorch Lightning 实现。
 
-![最终生成样本](generated_samples/final_generated.png)
-
 ## 快速开始
 
 ```bash
@@ -103,9 +101,11 @@ z ∈ R^100
 
 在 CPU 上训练 50 个 epoch 约需 10 分钟（参数总量约 1.25M）。
 
-**损失曲线：**
+**生成样本：**
+![生成样本](generated_samples/final_generated.png)
 
-![损失曲线](generated_samples/loss_curve.png)
+**损失曲线：**
+![损失曲线](generated_samples/loss_curve_final.png)
 
 生成器损失从约 1.5 下降至约 0.6，判别器损失稳定在 0.8–1.0 之间，振荡模式为健康 GAN 训练的典型特征。
 

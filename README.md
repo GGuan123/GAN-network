@@ -16,13 +16,10 @@ python run_gan.py
 ## 项目结构
 
 ```
-adversalnetwork/
-├── run_gan.py                              # 纯 PyTorch 实现（100 epochs）
-├── generative_adversarial_networks.py      # PyTorch Lightning 实现（200 epochs）
+GAN-network/
+├── generative_adversarial_networks.py      # PyTorch 实现（100 epochs）
 ├── captcha-getmean_std_labels/             # 1,136 张带标注的 CAPTCHA 图像（24×72 RGB）
-├── generated_samples/                      # 输出：检查点、损失曲线、最终样本网格
-├── tb_logs/                                # TensorBoard 事件文件
-└── Technical_Report_GAN_CAPTCHA.md         # 完整技术报告
+└── generated_samples/                      # 输出：检查点、损失曲线、最终样本网格
 ```
 
 ## 数据集
@@ -36,7 +33,13 @@ adversalnetwork/
 | 颜色通道 | RGB |
 | 训练 / 验证 / 测试 | 795 / 227 / 114（70% / 20% / 10%） |
 
+数据预先处理：
+1. 将图像从numpy.ndarry(0-255像素) -> 缩放到Pytorch Tensor张量(0-1的浮点数)
+  --> 防止输入值过大使部分神经元饱和从而导致浅层梯度消失
+
 数据增强：`RandomHorizontalFlip`（随机水平翻转）、`RandomRotation(±10°)`（随机旋转）、`ColorJitter`（颜色抖动，亮度/对比度/饱和度各 0.3）。
+  --> 模型学习图片转换后的适应度
+  --> 扩充数据集，防止过拟合
 
 ## 模型架构
 

@@ -120,6 +120,7 @@ z ∈ R^100
 2. ***增强Discriminator-初始配置10个Epoch后损失基本无变化***
 
 Discriminator结构修改：
+
 input ∈ R^(3×24×72)
   │
   ├─ Conv2d(3→32,  k=4, stride=2, pad=1) → LeakyReLU(0.2)    → (32,  12, 36)

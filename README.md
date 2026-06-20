@@ -143,9 +143,11 @@ input ∈ R^(3×24×72)
 | Epoch 0 | G=0.74 / D=0.67 | G=0.79 / D=0.68 |
 | Epoch 99 | G=0.73 / D=0.69 | G=1.14 / D=0.54 |
 | 趋势 | 完全平坦，10 epoch 后停滞 | 持续变化，有对抗博弈 |
+
 问题：discriminator偏强，generator loss整体上升。
 
 3. ***增强Generator-发现性能瓶颈，损失在上升***
+
 引入resBlock残差结构加参数扩张
 
 **逐项差异汇总**
@@ -169,9 +171,8 @@ input ∈ R^(3×24×72)
 
 4. **总参数增长**：从 1.62M 到 4.53M，增长约 180%，主要来自残差块中额外的卷积层和翻倍的通道数。
 
-
 **生成样本：**
-![生成样本](generated_samples_v3_optimize_generator/final_generated.png)
+![生成样本](generated_samples_v3_optimize_generator/epoch_079.png)
 
 **损失曲线：**
 ![损失曲线](generated_samples_v3_optimize_generator/loss_curve_final.png)

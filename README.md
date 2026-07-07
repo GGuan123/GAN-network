@@ -120,7 +120,7 @@ z ∈ R^100
 2. ***增强Discriminator-初始配置10个Epoch后损失基本无变化***
 
 Discriminator结构修改：
-
+```
 input ∈ R^(3×24×72)
   │
   ├─ Conv2d(3→32,  k=4, stride=2, pad=1) → LeakyReLU(0.2)    → (32,  12, 36)
@@ -130,7 +130,7 @@ input ∈ R^(3×24×72)
   ├─ AdaptiveAvgPool2d(1)                                      → (256,  1,  1)
   ├─ Flatten → Linear(256→1)
   └─ raw logit (no sigmoid)
-
+```
 **生成样本：**
 ![生成样本](generated_samples_v2_optimize_discriminator/final_generated.png)
 
